@@ -15,7 +15,6 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Kavivas.Tech | Fixing real problems with AI",
   description: "Kavivas is a product studio creating software across multiple domains — built for clarity, speed, and real-world outcomes.",
-  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -31,17 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <Providers>{children}</Providers>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/sw.js');
-                });
-              }
-            `,
-          }}
-        />
       </body>
     </html>
   );
