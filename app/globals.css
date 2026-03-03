@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* AIForge-style theme variables */
+/* Light theme (ustwo-style) */
 @layer base {
   :root {
     --background: oklch(1 0 0);
@@ -83,37 +83,24 @@
   }
 }
 
-/* Psypher-style gradient mesh background */
-.gradient-mesh {
-  background-color: oklch(0.09 0.01 265);
-  background-image:
-    radial-gradient(at 40% 20%, oklch(0.55 0.2 265 / 0.25) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, oklch(0.5 0.15 290 / 0.2) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, oklch(0.45 0.18 280 / 0.2) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, oklch(0.4 0.12 260 / 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, oklch(0.5 0.15 300 / 0.15) 0px, transparent 50%);
-  background-size: 100% 100%;
+/* ustwo-style colors and grain */
+:root {
+  --ustwo-mint: #b8e8dc;
+  --ustwo-teal: #c9f0e5;
+  --ustwo-coral: #ed5935;
+  --ustwo-sky: #c4e4f2;
+  --ustwo-pink: #f0c4cc;
+  --ustwo-peach: #f5d5c8;
+  --ustwo-magenta: #e8c4e0;
+  --ustwo-orange: #f0a070;
+  --ustwo-purple: #d4c4e8;
+  --ustwo-charcoal: #2c2c2c;
 }
 
-/* Subtle grid overlay */
-.grid-overlay {
-  background-image: linear-gradient(oklch(1 0 0 / 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 0.02) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-/* Shine animation for gradient text */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.animate-gradient-text {
-  background: linear-gradient(90deg, oklch(0.708 0.165 254.624), oklch(0.7 0.18 290), oklch(0.75 0.15 330), oklch(0.708 0.165 254.624));
-  background-size: 200% auto;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-shift 6s ease infinite;
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
